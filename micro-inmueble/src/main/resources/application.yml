@@ -1,0 +1,30 @@
+spring:
+  application:
+    env: DEV
+    name: inmueble-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_inmueble
+    username: postgres
+    password: F2developer97
+    driver-class-name: org.postgresql.Driver
+    #validationQuery: SELECT 1
+  jpa:
+    show-sql: true
+    #database: postgressSql
+    hibernate:
+     dialect: org.hibernate.dialect.PostgreSQLDialect
+     ddl-auto: update
+
+eureka:
+  client:
+    enabled: false
+
+server:
+  port: 3333
+
+service:
+  security:
+    secure-key-username: usernameSecurity
+    secure-key-password: passwordSecurity!
+    secure-key-username-2: usernameSecurity2
+    secure-key-password-2: passwordSecurity2!

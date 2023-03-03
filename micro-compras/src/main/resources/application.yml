@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: compra-service
+  datasource:
+    url: jdbc:h2:mem:db_compra
+    username: root
+    password: 1234
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+server:
+  port: 4444
+
+eureka:
+  client:
+    enabled: false
+
+service:
+  security:
+    secure-key-username: userSecCompra
+    secure-key-password: passwordSecurity!Compra
