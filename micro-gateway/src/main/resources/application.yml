@@ -15,13 +15,21 @@ spring:
     hibernate:
       ddl-auto: update
   cloud:
+    #loadbalancer:
+      #ribbon:
+        #enable-cache: false
+        #enabled: false
+        #eureka:
+          #enabled: true
     gateway:
       discovery:
         locator:
           enabled: true
+          lower-case-service-id: true
       routes:
         - id: inmueble-service
-          uri: http://localhost:3333
+          uri: lb://inmueble-service
+          #http://localhost:3333
           predicates:
             - Path=/api/inmueble/**
           filters:
@@ -30,7 +38,8 @@ spring:
                 name: usernameSecurity
                 password: passwordSecurity!
         - id: compra-service
-          uri: http://localhost:4444
+          uri: lb://compra-service
+          #http://localhost:4444
           predicates:
             - Path=/api/compra/**
           filters:
@@ -44,6 +53,16 @@ eureka:
     enabled: true
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+#ribbon:
+  #eureka:
+    #enable-cache: false
+    #enabled: true
+
+#inmueble-service:
+  #ribbon:
+    #listOfServers: http://localhost:3333, localhost:3334
+    #NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
 
 app:
   jwt:
