@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: micro-eureka-server
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
+      username: root
+      password: s3cr3t
