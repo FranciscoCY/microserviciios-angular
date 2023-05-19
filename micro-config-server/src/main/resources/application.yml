@@ -1,0 +1,18 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/FranciscoCY/microserviciios-angular.git
+          searchPaths: config-data
+          username: FranciscoCY
+          password: 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
+
+  security:
+    user:
+      name: root
+      password: s3cr3t
